@@ -1,0 +1,33 @@
+﻿@page 
+//"/view/{id:int:even:min(2)}"
+@model RazorpagesTutorial.Pages.Employees.DetailsModel
+@{
+     var photpath = "~/images/" + (Model.Employee.PhotoPath ?? "noname.jpg");
+}
+<div class="text-center">
+    <h1 >Details</h1>
+</div>
+<div class="row"> 
+    <div class="col-sm-4 offset-4 " >
+        <div class="card" style=" max-width:30rem;">
+            <div class="card-header">
+            <h1>    @Model.Employee.Name</h1>
+            </div>
+            <div class="card-body text-center">
+                <img class="card-img-top imageThumbnail" src="@photpath" asp-append-version="true" />
+
+                <h4>Employee ID : @Model.Employee.Id</h4>
+                <h4>Email : @Model.Employee.Email</h4>
+                <h4>Department : @Model.Employee.Department</h4>
+
+            </div>
+            <div class="card-footer text-center">
+                <a asp-page="index"
+                   class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+
+</div>
